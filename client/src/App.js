@@ -13,10 +13,11 @@ const App = () => {
 
 	return (
 		<div>
-			<SavedList list={savedList} />
 			<Router>
+        {/* have to move SaveList into router so link inside of it work */}
+				<SavedList list={savedList} />
 				<Route exact path="/" component={MovieList} />
-				<Route path="/movie/:id" component={Movie} />
+				<Route path="/movies/:id" component={Movie} />
 			</Router>,
 		</div>
 	);
