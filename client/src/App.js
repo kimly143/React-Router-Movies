@@ -14,10 +14,10 @@ const App = () => {
 	return (
 		<div>
 			<Router>
-        {/* have to move SaveList into router so link inside of it work */}
+				{/* KIM BUCK 2020 --- have to move SaveList into router so link inside of it work */}
 				<SavedList list={savedList} />
 				<Route exact path="/" component={MovieList} />
-				<Route path="/movies/:id" component={Movie} />
+				<Route path="/movies/:id" render={(props) => <Movie {...props} addToSavedList={addToSavedList} />} />
 			</Router>,
 		</div>
 	);

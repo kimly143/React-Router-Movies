@@ -20,13 +20,12 @@ const Movie = (props) => {
 				});
 		},
 		[ props.match.params.id ]
-	); //if value changes, re-run the effect function in useEffect.
+	); //KIM BUCK 2020 ****** if value changes, re-run the effect function in useEffect.
 
-	// Uncomment this only when you have moved on to the stretch goals
-	// const saveMovie = () => {
-	//   const addToSavedList = props.addToSavedList;
-	//   addToSavedList(movie)
-	// }
+	const saveMovie = () => {
+		const addToSavedList = props.addToSavedList;
+		addToSavedList(movie);
+	};
 
 	if (!movie) {
 		return <div>Loading movie information...</div>;
@@ -35,8 +34,8 @@ const Movie = (props) => {
 	// const { title, director, metascore, stars } = movie;
 	return (
 		<div className="save-wrapper">
-			<MovieCard movie={movie}/>
-			<div className="save-button">Save</div>
+			<MovieCard movie={movie} />
+			<button className="save-button" onClick={saveMovie} >Save</button>
 		</div>
 	);
 };
